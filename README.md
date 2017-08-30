@@ -1,5 +1,7 @@
 # Ruby, Rspec & Travis-CI
 [![Build Status](https://travis-ci.org/SelenaSmall/ruby_travis.svg?branch=master)](https://travis-ci.org/SelenaSmall/ruby_travis)
+[![Code Climate](https://codeclimate.com/github/SelenaSmall/ruby_travis/badges/gpa.svg)](https://codeclimate.com/github/SelenaSmall/ruby_travis)
+[![Test Coverage](https://codeclimate.com/github/SelenaSmall/ruby_travis/coverage.svg)](https://codeclimate.com/github/SelenaSmall/ruby_travis/coverage)
 
 ***
 
