@@ -1,4 +1,5 @@
 # Ruby, Rspec & Travis-CI
+[![Build Status](https://travis-ci.org/SelenaSmall/ruby_travis.svg?branch=master)](https://travis-ci.org/SelenaSmall/ruby_travis)
 
 ***
 
