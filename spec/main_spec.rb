@@ -1,3 +1,5 @@
+# Sample spec to get started. Remove this file when you start building your project
+
 require 'rspec'
 require 'spec_helper'
 require './lib/main'

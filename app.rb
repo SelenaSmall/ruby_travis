@@ -1,5 +1,7 @@
 #!/usr/bin/ruby
 
+# Entry point for your app - Modify this file to reflect your app
+
 require_relative './lib/main'
 
 command = Main.new

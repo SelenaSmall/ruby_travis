@@ -1,132 +1,105 @@
 # Ruby, Rspec & Travis-CI
-[![Build Status](https://travis-ci.org/SelenaSmall/ruby_travis.svg?branch=master)](https://travis-ci.org/SelenaSmall/ruby_travis)
+[![Build Status](https://travis-ci.org/SelenaSmall/ruby-travis-example.png)](https://travis-ci.org/SelenaSmall/ruby-travis-example)
 [![Code Climate](https://codeclimate.com/github/SelenaSmall/ruby_travis/badges/gpa.svg)](https://codeclimate.com/github/SelenaSmall/ruby_travis)
 [![Test Coverage](https://codeclimate.com/github/SelenaSmall/ruby_travis/coverage.svg)](https://codeclimate.com/github/SelenaSmall/ruby_travis/coverage)
 
 ***
 
-## Initialize Repo
-Initialise repo on Github with a README.md https://github.com
+## Set Up
 
-> Login > Your Profile > Repositories > New
+__Clone Repo__
 
-	Repository Name: ruby_travis_example
-	Public: YES
-	Initialise this repository with a README.md: YES
+> $ git clone repo_name
+> $ bundle install
 
-> Create Repository
+__Remove .git__
 
-Clone to your local working directory
-From terminal:
+> $ rm -rf .git
 
-> $ cd {your_working_dir}
->
-> $ git clone {repo_name}
 
-***
+__Create your repo__
 
-## Ruby project base structure
+https://github.com
 
-* Create a .ruby-version file
-* Create the lib dir for the project files
-* Create the project root file app.rb
-* Create a /lib directory for where class will be stored
+Add this project to your repo
 
-__Base Dir__
+> $ git init
+> $ git add —all
+> $ git commit -m ‘Initial commit’
+> $ git remote add origin {remote_url}
+> $ git remote -v
+> $ git push -u origin master
 
+___Commit changes to your clean app__
+
+> $ git status
+> $ git add —all
+> $ git commit -m ‘initial commit’
+> $ git push
+
+__Travis__
+
+https://travis-ci.org/
+
+- Sign in with Github
+- Add your repo 
+
+__CodeClimate__
+
+https://codeclimate.com/
+
+- Sign in with Github
+- Add you repo
+- Get the token and add it to your .travis.yml
+	project > settings > test coverage > test reporter id
+
+__README__
+
+Update the README with your new badges
+
+- Build Status Image
 ```
-- /lib
-	- main.rb
-- .ruby-version
-- app.rb
-- README.md
-```
-
-***
-
-## Initialise Rspec
-
-https://github.com/rspec/rspec
-
-* Create Gemfile with rspec spec
-* Generate your gemfile.lock $ gem install bundle && bundle install
-* Initialise Rspec $ rspec --init
-
-__Add to project root__
-
-```
-- /spec
-- .rspec
-- Gemfile
-- Gemfile.lock
-```
-***
-
-## Write a test and corresponding code
-
-I’ve just written some sample code to retrieve a user input and return their name, for the sake of demonstration and to ensure the tests build correctly.
-
-http://www.betterspecs.org/
-https://www.anchor.com.au/wp-content/uploads/rspec_cheatsheet_attributed.pdf
-
-__app__
-```
-#!/usr/bin/ruby
-
-require_relative './lib/main'
-
-command = Main.new
-
-$stdout.print "What's your name? \n"
-
-# Reading user input
-loop do
-  input = gets.chomp
-
-  next if input.empty?
-
-  unless 'EXIT'.match?(input)
-    command.interpret(input)
-    next
-  end
-
-  $stdout.print "Goodbye! \n"
-  break
-end
+[![Build Status](https://travis-ci.org/{your_github_name}/{your_repo_name}.png)](https://travis-ci.org/{your_github_name}/{your_repo_name})
 ```
 
-__spec/main_spec__
+- Code climate Image
 ```
-require 'rspec'
-require 'spec_helper'
-require './lib/main'
-
-describe Main do
-  describe '#interpret' do
-    it 'should return the command which is a String' do
-      instance = Main.new
-      command = 'Selena'
-
-      expect(instance.interpret(command)).to be_a String
-      expect(instance.interpret(command)).to eq 'Selena'
-    end
-  end
-end
+[![Code Climate](https://codeclimate.com/github/{your_github_name}/{your_repo_name}/badges/gpa.svg)](https://codeclimate.com/github/{your_github_name}/{your_repo_name})
 ```
 
-__lib/main__
+- Test coverage Image
 ```
-# Main class
-class Main
-  # Interpret method
-  # @param name [String]
-  # @return name
-  def interpret(name)
-    $stdout.print "Hello #{name.capitalize}. \n"
-
-    name
-  end
-end
+[![Test Coverage](https://codeclimate.com/github/{your_github_name}/{your_repo_name}/coverage.svg)](https://codeclimate.com/github/{your_github_name}/{your_repo_name}/coverage)
 ```
 
 ***
+
+## Write your app
+
+Now you’re set up with a blank ruby project to test builds, code quality and coverage throughout development!
+
+Entry point
+
+> app.rb
+
+Source files
+
+> /lib/main.rb
+
+Test files
+
+> spec/main_spec.rb
+
+## Usage
+
+To run the app
+
+> $ ruby app.rb
+
+## Testing
+
+To run tests before committing changes
+
+> $ rake spec
+
+When committing changes to master branch, your code will automatically build with Travis-CI and CodeClimate and update the badges in your repo’s README.
